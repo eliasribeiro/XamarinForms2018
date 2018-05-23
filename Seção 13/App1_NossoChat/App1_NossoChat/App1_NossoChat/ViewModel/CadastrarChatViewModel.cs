@@ -36,7 +36,8 @@ namespace App1_NossoChat.ViewModel
                 ((NavigationPage)App.Current.MainPage).Navigation.PopAsync();
 
                 var Nav = (NavigationPage)App.Current.MainPage;
-                var Chats = (View.Chats) Nav.CurrentPage;
+                // var Chats = (View.Chats) Nav.CurrentPage; -- Bug no Android - Este comando não obtém a página Chat, mas sim Cadastro.
+                var Chats = (View.Chats)Nav.RootPage; 
                 var ViewModel = (ChatsViewModel)Chats.BindingContext;
                 if( ViewModel.AtualizarCommand.CanExecute(null))
                 {
